@@ -4,11 +4,12 @@ import { Reveal } from "@/components/motion";
 import { Button, Container, Eyebrow, H2, PageHero, Panel, Section } from "@/components/ui";
 import { m } from "@/lib/media";
 import { CONTACT, mailto } from "@/lib/site";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta("/partners", {
   title: "Partners",
   description: "Tremap's supporters, early adopters and development partners.",
-};
+});
 
 const PARTNERS = [
   { name: "UKRI Innovate UK", logo: "943aed_ecdf1aa9f13e4a75873997df52318af9~mv2.png", text: "Tremap has been the recipient of UKRI InnovateUK funding." },

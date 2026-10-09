@@ -3,12 +3,13 @@ import { SpeciesMap } from "@/components/SpeciesMap";
 import { SponsorProject } from "@/components/SponsorProject";
 import { m } from "@/lib/media";
 import { CONTACT, mailto } from "@/lib/site";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta("/ghl-cork-oak", {
   title: "GHL Cork Oak",
   description:
     "The UK's first and only comprehensive map of Cork Oak (Quercus suber). Sponsored by Glenn Humphries Landscaping, powered by Tremap.",
-};
+});
 
 export default function GhlCorkOakPage() {
   const hero = m("173562_d282b95f8d044ff9a4214a22b570e7f7~mv2.webp");

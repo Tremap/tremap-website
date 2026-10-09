@@ -3,11 +3,12 @@ import Image from "next/image";
 import { Reveal } from "@/components/motion";
 import { Button, Container, CtaBand, Eyebrow, H2, PageHero, Section } from "@/components/ui";
 import { m } from "@/lib/media";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta("/traceabilityaddedvalue", {
   title: "Traceability and Added Value",
   description: "Add QR codes to your packaging and let consumers trace your product back to the tree!",
-};
+});
 
 const STEPS = [
   { title: "Add QR codes to labels…", image: "943aed_c96f126918c94355af3c96b8cdbb51ce~mv2.png", alt: "A clothing label with a Tremap QR code" },

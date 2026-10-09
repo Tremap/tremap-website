@@ -6,11 +6,12 @@ import { Phone } from "@/components/Phone";
 import { Button, CheckItem, Container, CtaBand, Eyebrow, H2, PageHero, Panel, Section } from "@/components/ui";
 import { m } from "@/lib/media";
 import { APP_LINKS } from "@/lib/site";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta("/labelling", {
   title: "Labelling",
   description: "Label any tree and add it to the Tremap global database of trees.",
-};
+});
 
 const OLD = [
   "Expensive and time-consuming to maintain",

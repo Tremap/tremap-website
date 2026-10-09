@@ -1,0 +1,270 @@
+{
+  "/": {
+    "title": "Global Tree Database for everyone | Tremap",
+    "description": "The world's first global database of trees is here! Tremap is a super simple, budget-friendly ledger system for botanical gardens, arboreta and city councils. And its an engaging, fun-to-use app for every person on the planet!"
+  },
+  "/about": {
+    "title": "About | Tremap",
+    "description": "Tremap's team of global tech developers, foresters and horticultural experts"
+  },
+  "/blog": {
+    "title": "Blog | Tremap",
+    "description": "Catch up on Tremap's latest developments and product releases!"
+  },
+  "/blog/categories/focus-trees": {
+    "title": "Focus Trees",
+    "description": null
+  },
+  "/blog/categories/media-coverage": {
+    "title": "Media Coverage",
+    "description": null
+  },
+  "/blog/categories/press_release": {
+    "title": "Press Release",
+    "description": "Recent developments at Tremap"
+  },
+  "/copy-of-labelling": {
+    "title": "Coming Soon | Tremap",
+    "description": "Label any tree and add it to the Tremap global database of trees"
+  },
+  "/creativeconnect": {
+    "title": "Creative Connect | Tremap",
+    "description": null
+  },
+  "/forum": {
+    "title": "Forum | Tremap",
+    "description": "Join our dynamic forum to connect with tree tech enthusiasts. Explore discussions, share insights, and grow with our technology community today!"
+  },
+  "/ghl-cork-oak": {
+    "title": "GHL Cork Oak | Tremap",
+    "description": "Discover the rare trees supported by Heathrow and learn how these rare trees supported by Heathrow are vital to our ecosystem. Visit now!"
+  },
+  "/gopzaragoza": {
+    "title": "GOP Zaragoza | Tremap",
+    "description": null
+  },
+  "/greenspaces": {
+    "title": "GreenSpaces | Tremap",
+    "description": "Cutting edge green space management software for local and regional authorities, city councils, arborists, tree surveyors and landscapers."
+  },
+  "/group/tremap-group/discussion": {
+    "title": "Discussion - Tremap Group | Tremap",
+    "description": "Welcome to the group! You can connect with other members, get updates and share videos."
+  },
+  "/groups": {
+    "title": "Groups | Tremap",
+    "description": "Explore how our tree technology company fosters innovation and collaboration within groups. Discover the future forest of tree supporters!"
+  },
+  "/heathrow-black-poplars": {
+    "title": "Heathrow Black Poplars | Tremap",
+    "description": "Discover the rare trees supported by Heathrow and learn how these rare trees supported by Heathrow are vital to our ecosystem. Visit now!"
+  },
+  "/labelling": {
+    "title": "Labelling | Tremap",
+    "description": "Label any tree and add it to the Tremap global database of trees"
+  },
+  "/members": {
+    "title": "Members | Tremap",
+    "description": null
+  },
+  "/news": {
+    "title": "News | Tremap",
+    "description": "Stay updated with the latest news from the technology world. Discover insights and trends in tech news on our dedicated news page."
+  },
+  "/partners": {
+    "title": "Partners | Tremap",
+    "description": "Tremap's supporters, early adopters and development partners."
+  },
+  "/post/agritech-cornwall-funding": {
+    "title": "Agritech Cornwall Funding",
+    "description": null
+  },
+  "/post/b2b-conference-in-chennai": {
+    "title": "🍃 B2B Conference in Chennai 🍃",
+    "description": null
+  },
+  "/post/bbc-radio-4-features-tremap": {
+    "title": "BBC Radio 4 features Tremap",
+    "description": null
+  },
+  "/post/demo-day-at-porthpean-house": {
+    "title": "Demo Day at Porthpean House",
+    "description": null
+  },
+  "/post/eden-project-takes-on-tremap": {
+    "title": "Eden Project takes on Tremap",
+    "description": null
+  },
+  "/post/embedded-web-maps-are-here": {
+    "title": "Embedded Tremap web maps are here!",
+    "description": null
+  },
+  "/post/exploring-the-benefits-of-tree-mapping-apps": {
+    "title": "Benefits of Tree Mapping Apps",
+    "description": "Discover the benefits of using a tree mapping app for urban forestry and data management."
+  },
+  "/post/falmouth-tc-joins-to-develop-trecare": {
+    "title": "Falmouth TC joins to develop treCare!",
+    "description": null
+  },
+  "/post/feb-3rd-roundtable": {
+    "title": "Feb 3rd Roundtable - Save the date!",
+    "description": "Tremap is delighted to introduce the Tremap Roundtable - a forum for understanding needs, sharing experience and ideas, and exploring solutions. The first in a series this year, the Tremap Roundtable on February 3rd 2023 will bring together representatives from local/regional authorities, citizen science, tree advocacy, space tech and voices from the corporate sector."
+  },
+  "/post/from-roots-to-runways-tremap-heads-to-heathrow": {
+    "title": "From Roots to Runways: Tremap heads to Heathrow!",
+    "description": null
+  },
+  "/post/front-and-centre-at-the-cornwall-garden-society-spring-flower-show": {
+    "title": "Front and centre at the Cornwall Garden Society Spring Flower Show!",
+    "description": null
+  },
+  "/post/invest-in-a-greener-future": {
+    "title": "Invest in a greener future",
+    "description": null
+  },
+  "/post/magnolia-campbellii-flowering-is-sweeping-around-the-southern-hemisphere": {
+    "title": "Magnolia campbellii flowering is sweeping around the southern hemisphere",
+    "description": null
+  },
+  "/post/making-tree-planting-count": {
+    "title": "Introducing Tremap's Tree Establishment Monitoring Platform",
+    "description": null
+  },
+  "/post/new-feature-clickable-logos-and-url-links": {
+    "title": "New Feature! Clickable logos and URL links!",
+    "description": null
+  },
+  "/post/next-stop-for-tremap-is-kolkata": {
+    "title": "Next stop for Tremap is Kolkata!",
+    "description": null
+  },
+  "/post/schoffel-gets-trees": {
+    "title": "Schoffel gets trees",
+    "description": null
+  },
+  "/post/see-tremap-at-plantnetwork-plant-records-meeting-2022": {
+    "title": "See Tremap at PlantNetwork Plant Records Meeting 2022!",
+    "description": null
+  },
+  "/post/space-for-trees-aerospace-cornwall-gets-behind-tremap": {
+    "title": "Space for Trees? AeroSpace Cornwall gets behind Tremap!",
+    "description": null
+  },
+  "/post/supporting-arboriculture-learning-with-greenspaces-at-myerscough-college": {
+    "title": "Supporting Arboriculture Learning with GreenSpaces at Myerscough College",
+    "description": null
+  },
+  "/post/tevi-allocates-erdf-funding-to-tremap": {
+    "title": "Tevi allocates ERDF funding to Tremap",
+    "description": null
+  },
+  "/post/the-giant-quillay-of-the-chilean-andes": {
+    "title": "The giant Quillay of the Chilean Andes",
+    "description": null
+  },
+  "/post/the-new-standard-in-urban-green-space-management-software-is-here": {
+    "title": "The new standard in urban green space management software is here!",
+    "description": "The new standard in urban green space management software is here! Tremap and R3GIS join forces to bring GreenSpaces to the UK."
+  },
+  "/post/tremap-at-10-downing-st": {
+    "title": "Tremap at #10 Downing St",
+    "description": null
+  },
+  "/post/tremap-at-vancouver-mg-spring-affair": {
+    "title": "Tremap at Vancouver MG Spring Affair",
+    "description": null
+  },
+  "/post/tremap-awarded-esri-startup-partner-status": {
+    "title": "Tremap awarded Esri Startup Partner Status",
+    "description": null
+  },
+  "/post/tremap-enters-the-spanish-market": {
+    "title": "Tremap Enters The Spanish Market!",
+    "description": null
+  },
+  "/post/tremap-features-in-plantnetwork": {
+    "title": "Tremap features in PlantNetwork",
+    "description": null
+  },
+  "/post/tremap-greenspaces-at-ntoc": {
+    "title": "Save the date! See Tremap GreenSpaces at the NTOC in Reading on November 7th!",
+    "description": "Tremap GreenSpaces will mark its debut on the UK market at the National Tree Officers Conference (NTOC), on November 7th in Reading, England."
+  },
+  "/post/tremap-heads-to-india": {
+    "title": "Tremap heads to India!",
+    "description": null
+  },
+  "/post/tremap-in-use-tracking-olive-trees-in-greece-and-italy": {
+    "title": "Tremap in use: Tracking olive trees in Greece and Italy!",
+    "description": null
+  },
+  "/post/tremap-on-chaos-tv": {
+    "title": "Tremap on CHAOS TV",
+    "description": null
+  },
+  "/post/tremap-on-source-fm": {
+    "title": "Tremap on Source FM",
+    "description": null
+  },
+  "/post/tremap-pilot-project-in-falmouth-uk": {
+    "title": "Tremap pilot project in Falmouth, UK",
+    "description": null
+  },
+  "/post/tremap-presents-at-agriteche-reap-2022": {
+    "title": "Tremap presents at AgriTechE REAP 2022",
+    "description": null
+  },
+  "/post/tremap-used-to-map-teabushes": {
+    "title": "1,110 tea bushes mapped in 2 hrs, 65 minutes!",
+    "description": null
+  },
+  "/post/tremap-welcomes-spinterns": {
+    "title": "Tremap welcomes SPINterns!",
+    "description": null
+  },
+  "/post/tremap-welcomes-university-of-exeter-students": {
+    "title": "Tremap welcomes University of Exeter students!",
+    "description": null
+  },
+  "/post/tremap-wins-ukri-innovateuk-grant-funding-for-design-study": {
+    "title": "Tremap wins UKRI InnovateUK grant funding for Design Study",
+    "description": null
+  },
+  "/post/tremap-x-theo-cruthley-mack": {
+    "title": "Tremap x Theo Crutchley-Mack",
+    "description": null
+  },
+  "/pricing": {
+    "title": "Pricing | Tremap",
+    "description": "Tremap is the world's first easy-to-use global database of trees. It's also the most economical! Check out our generous introductory pricing."
+  },
+  "/privacy-policy": {
+    "title": "Privacy Policy | Tremap",
+    "description": "The most open sourced and sharable tree knowledge takes privacy seriously"
+  },
+  "/solutions": {
+    "title": "Solutions | Tremap",
+    "description": "Innovative tree services, save money and the environment"
+  },
+  "/speciessponsors": {
+    "title": "Species Sponsors | Tremap",
+    "description": "Support conservation with Species Sponsorship. Partner with tremap technology to protect species and make a real impact today."
+  },
+  "/terms-and-conditions": {
+    "title": "Terms and Conditions | Tremap",
+    "description": "Tremap website and app terms and conditions of use."
+  },
+  "/the-global-tea-forest": {
+    "title": "The Global Tea Forest | Tremap",
+    "description": null
+  },
+  "/the-nare-magnolia-campbellii": {
+    "title": "The Nare Magnolia Campbellii | Tremap",
+    "description": "Explore spring globally with tremap. Track spring around the world with tremap and discover 'The Nare Magnolia campbellii' in full bloom."
+  },
+  "/traceabilityaddedvalue": {
+    "title": "Traceability and Added Value | Tremap",
+    "description": "Add QR codes to your packaging and let consumers trace your product back to the tree!"
+  }
+}

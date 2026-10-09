@@ -6,11 +6,12 @@ import { Reveal } from "@/components/motion";
 import { PricingNote, PricingTable } from "@/components/PricingTable";
 import { Arrow, Container, Eyebrow, H2, PageHero, Panel, Section } from "@/components/ui";
 import { m } from "@/lib/media";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta("/solutions", {
   title: "Solutions",
   description: "Innovative tree services, save money and the environment.",
-};
+});
 
 const SOLUTIONS = [
   { title: "Tree Mapping and Digital Labelling", sub: "No-cost, permanent, eco-friendly", href: "/labelling", image: "943aed_ea0b15fa3586426c8580f06749ae27a3~mv2.jpg" },

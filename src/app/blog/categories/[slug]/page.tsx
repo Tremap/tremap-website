@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { BlogIndex } from "@/components/BlogIndex";
 import { CATEGORIES, getAllPosts } from "@/lib/posts";
+import { pageMeta } from "@/lib/seo";
 
 export const dynamicParams = false;
 
@@ -18,7 +19,7 @@ const INTROS: Record<string, string> = {
 export async function generateMetadata({ params }: PageProps<"/blog/categories/[slug]">): Promise<Metadata> {
   const { slug } = await params;
   const cat = CATEGORIES.find((c) => c.slug === slug);
-  return { title: cat?.label ?? "Blog", description: INTROS[slug] };
+  return pageMeta(`/blog/categories/${slug}`, { title: cat?.label ?? "Blog", description: INTROS[slug] });
 }
 
 export default async function CategoryPage({ params }: PageProps<"/blog/categories/[slug]">) {

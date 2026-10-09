@@ -4,12 +4,13 @@ import Link from "next/link";
 import { Reveal } from "@/components/motion";
 import { Arrow, Button, Container, CtaBand, PageHero, Section } from "@/components/ui";
 import { m } from "@/lib/media";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta("/speciessponsors", {
   title: "Species Sponsors",
   description:
     "Support conservation with Species Sponsorship. Partner with tremap technology to protect species and make a real impact today.",
-};
+});
 
 const PROJECTS = [
   {

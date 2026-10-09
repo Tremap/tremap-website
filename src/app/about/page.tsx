@@ -3,11 +3,12 @@ import Image from "next/image";
 import { Reveal } from "@/components/motion";
 import { Button, Container, CtaBand, Eyebrow, H2, PageHero, Section } from "@/components/ui";
 import { m } from "@/lib/media";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta("/about", {
   title: "About",
   description: "Tremap's team of global tech developers, foresters and horticultural experts.",
-};
+});
 
 // Roles left blank where the current site shows none — to be confirmed.
 const TEAM: { name: string; role?: string; photo: string }[] = [

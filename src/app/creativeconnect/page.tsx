@@ -4,12 +4,13 @@ import { Reveal } from "@/components/motion";
 import { Button, Container, CtaBand, Eyebrow, H2, PageHero, Panel, Section } from "@/components/ui";
 import { m } from "@/lib/media";
 import { CONTACT, mailto } from "@/lib/site";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta("/creativeconnect", {
   title: "Creative Connect",
   description:
     "Do you paint, draw or photograph trees? Are you a musician or composer? Attach your creative work to trees in the Tremap app and put it in front of a global audience.",
-};
+});
 
 const APPLY = mailto(
   CONTACT.salesEmail,
@@ -123,7 +124,10 @@ export default function CreativeConnectPage() {
         <Container>
           <Reveal className="mx-auto max-w-3xl text-center">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-leaf">Featured artist</p>
-            <p className="mt-5 font-display text-4xl font-light text-forest">Theo Crutchley-Mack</p>
+            <blockquote className="mt-6 font-display text-3xl font-light italic leading-snug text-forest sm:text-4xl">
+              &ldquo;Definitely a game-changer...&rdquo;
+            </blockquote>
+            <p className="mt-6 font-display text-2xl text-forest">Theo Crutchley-Mack</p>
             <p className="mt-2 text-stone">British Artist, Cornwall, UK</p>
             <div className="mt-6">
               <Button href="/post/tremap-x-theo-cruthley-mack" variant="outline">

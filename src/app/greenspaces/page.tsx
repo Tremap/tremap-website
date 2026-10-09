@@ -5,12 +5,13 @@ import { Button, CheckItem, Container, CtaBand, Eyebrow, H2, PageHero, Panel, Se
 import { VideoGallery } from "@/components/VideoGallery";
 import { m } from "@/lib/media";
 import { CONTACT, mailto } from "@/lib/site";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta("/greenspaces", {
   title: "GreenSpaces",
   description:
     "Cutting edge green space management software for local and regional authorities, city councils, arborists, tree surveyors and landscapers.",
-};
+});
 
 const DEMO = mailto(CONTACT.salesEmail, "I'd like to schedule a demo of Tremap GreenSpaces");
 

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import logoWhite from "@/assets/logo-white.png";
+import { CookieSettingsButton } from "@/components/CookieConsent";
 import { CONTACT, PORTAL_URL, SOCIALS } from "@/lib/site";
 
 const COLUMNS = [
@@ -124,6 +125,7 @@ export function Footer() {
               <Link href="/terms-and-conditions" className="hover:text-white">
                 Terms &amp; conditions
               </Link>
+              <CookieSettingsButton className="hover:text-white" />
             </div>
           </div>
         </div>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { BlogIndex } from "@/components/BlogIndex";
 import { getAllPosts, tagSlug } from "@/lib/posts";
+import { pageMeta } from "@/lib/seo";
 
 export const dynamicParams = false;
 
@@ -17,7 +18,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps<"/blog/tags/[tag]">): Promise<Metadata> {
   const { tag } = await params;
-  return { title: `#${allTags().get(tag) ?? tag}` };
+  return pageMeta(`/blog/tags/${tag}`, { title: `#${allTags().get(tag) ?? tag}` });
 }
 
 export default async function TagPage({ params }: PageProps<"/blog/tags/[tag]">) {

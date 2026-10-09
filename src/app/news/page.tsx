@@ -7,17 +7,18 @@ import { PostCard } from "@/components/PostCard";
 import { Arrow, Button, Container, Eyebrow, H2, PageHero, Panel, Section } from "@/components/ui";
 import { m } from "@/lib/media";
 import { getAllPosts } from "@/lib/posts";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta("/news", {
   title: "News",
   description: "Press releases, media coverage and the Tremap press kit — logos, app screenshots and team photos.",
-};
+});
 
 const PRESS_KIT = [
-  { title: "Tremap logo", meta: "ZIP · 0.3 MB", href: "/files/tremap-logo.zip" },
-  { title: "Tremap app screenshots", meta: "ZIP · 8.1 MB", href: "/files/tremap-app-screenshots.zip" },
-  { title: "treBG — Tremap web portal", meta: "PDF · 1.3 MB", href: "/files/trebg-collection-management.pdf" },
-  { title: "Tremap team photos", meta: "ZIP · 0.4 MB", href: "/files/tremap-team.zip" },
+  { title: "Tremap Logo", meta: "ZIP · 0.3 MB", href: "/files/tremap-logo.zip" },
+  { title: "Tremap Screenshots", meta: "ZIP · 8.1 MB", href: "/files/tremap-app-screenshots.zip" },
+  { title: "treBG Web Portal Spec Sheet", meta: "PDF · 1.3 MB", href: "/files/trebg-collection-management.pdf" },
+  { title: "Tremap Team", meta: "ZIP · 0.4 MB", href: "/files/tremap-team.zip" },
 ];
 
 export default function NewsPage() {

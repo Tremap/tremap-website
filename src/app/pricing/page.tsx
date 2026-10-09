@@ -4,12 +4,13 @@ import { PricingNote, PricingTable } from "@/components/PricingTable";
 import { Button, Container, CtaBand, PageHero, Section } from "@/components/ui";
 import { m } from "@/lib/media";
 import { PORTAL_SIGNIN_URL } from "@/lib/site";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta("/pricing", {
   title: "Pricing",
   description:
     "Tremap is the world's first easy-to-use global database of trees. It's also the most economical! Check out our generous introductory pricing.",
-};
+});
 
 export default function PricingPage() {
   return (

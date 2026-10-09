@@ -5,12 +5,13 @@ import { Reveal } from "@/components/motion";
 import { SpeciesMap } from "@/components/SpeciesMap";
 import { Button, Container, Eyebrow, H2, PageHero, Panel, Section } from "@/components/ui";
 import { m } from "@/lib/media";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta("/the-global-tea-forest", {
   title: "The Global Tea Forest",
   description:
     "Mapping one of the most widely cultivated plants on Earth. Sponsor the Global Tea Forest and connect your organisation to every mapped tea bush.",
-};
+});
 
 const WHY = [
   { title: "A Data Point", body: "Tracking location, condition, and growth." },

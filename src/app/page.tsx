@@ -8,8 +8,45 @@ import { Monitor, Phone } from "@/components/Phone";
 import { PostCard } from "@/components/PostCard";
 import { Button, CheckItem, Container, Eyebrow, H2, Panel, Section } from "@/components/ui";
 import { m } from "@/lib/media";
+import { JsonLd } from "@/components/JsonLd";
 import { getAllPosts } from "@/lib/posts";
-import { APP_LINKS, getTreeCount, PORTAL_URL } from "@/lib/site";
+import { pageMeta } from "@/lib/seo";
+import { APP_LINKS, CONTACT, getTreeCount, PORTAL_URL, SITE_URL, SOCIALS } from "@/lib/site";
+
+export const metadata = pageMeta("/", { title: "Global Tree Database for everyone" });
+
+// Same structured data the Wix site published, so Google keeps the site
+// search box and the business details it already knows.
+const WEBSITE_LD = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Tremap",
+  url: `${SITE_URL}/`,
+  potentialAction: {
+    "@type": "SearchAction",
+    target: { "@type": "EntryPoint", urlTemplate: `${SITE_URL}/search?q={search_term}` },
+    "query-input": "required name=search_term",
+  },
+};
+
+const BUSINESS_LD = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Tremap",
+  url: SITE_URL,
+  image: `${SITE_URL}/icon.png`,
+  logo: `${SITE_URL}/icon.png`,
+  telephone: CONTACT.phone,
+  email: CONTACT.email,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Saint Georges Road",
+    addressLocality: "Nanpean",
+    postalCode: "PL26 7XR",
+    addressCountry: "GB",
+  },
+  sameAs: SOCIALS.map((s) => s.href),
+};
 
 const SOLUTIONS: SolutionRow[] = [
   {
@@ -93,6 +130,8 @@ export default async function Home() {
 
   return (
     <>
+      <JsonLd data={WEBSITE_LD} />
+      <JsonLd data={BUSINESS_LD} />
       <Hero treeCount={treeCount} />
 
       {/* Who works with Tremap? */}

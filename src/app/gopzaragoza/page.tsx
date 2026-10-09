@@ -3,11 +3,12 @@ import Image from "next/image";
 import { Reveal } from "@/components/motion";
 import { Button, Container, Eyebrow, H2, PlainHero, Section } from "@/components/ui";
 import { m } from "@/lib/media";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta("/gopzaragoza", {
   title: "GOP Zaragoza",
   description: "The Garden of Peace, Zaragoza, Spain — a Tremap partner garden in a city shaped by Romans, Muslims, Jews and Christians.",
-};
+});
 
 export default function GopZaragozaPage() {
   const badge = m("943aed_a61d850d37e64dc3a442df7500795095~mv2.png");

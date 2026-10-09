@@ -3,12 +3,13 @@ import { SpeciesMap } from "@/components/SpeciesMap";
 import { SponsorProject } from "@/components/SponsorProject";
 import { m } from "@/lib/media";
 import { CONTACT, mailto } from "@/lib/site";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta("/heathrow-black-poplars", {
   title: "Heathrow Black Poplars",
   description:
     "The UK's first and only comprehensive map of Black Poplars — Britain's rarest native tree. Sponsored by Heathrow, powered by Tremap.",
-};
+});
 
 export default function HeathrowBlackPoplarsPage() {
   const hero = m("943aed_7c7ea9767e1847009ea5dc5ed28a87e0~mv2.jpg");

@@ -5,12 +5,13 @@ import { SpeciesMap } from "@/components/SpeciesMap";
 import { Button, Container, CtaBand, Eyebrow, H2, Section } from "@/components/ui";
 import { m } from "@/lib/media";
 import { APP_LINKS } from "@/lib/site";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta("/the-nare-magnolia-campbellii", {
   title: "The Nare Magnolia Campbellii",
   description:
     "Explore spring globally with tremap. Track spring around the world with tremap and discover 'The Nare Magnolia campbellii' in full bloom.",
-};
+});
 
 export default function NareMagnoliaPage() {
   const nare = m("943aed_43f9485cdd4f401592300be710556b74~mv2.png");

@@ -3,11 +3,12 @@ import { ContactForm } from "@/components/ContactForm";
 import { Reveal } from "@/components/motion";
 import { Container, PlainHero, Section } from "@/components/ui";
 import { CONTACT, mailto, PORTAL_URL } from "@/lib/site";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta("/contact", {
   title: "Contact",
   description: "Get in touch with the Tremap team — demos, GreenSpaces, sponsorship, press and support.",
-};
+});
 
 // Friendly labels for the ?topic= values used by buttons around the site
 const TOPICS: Record<string, string> = {

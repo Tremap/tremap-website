@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, Manrope } from "next/font/google";
+import { CookieConsent } from "@/components/CookieConsent";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { SITE_URL } from "@/lib/site";
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
     template: "%s | Tremap",
   },
   description:
-    "The world's first global database of trees is here! Tremap is a super simple, budget-friendly platform to map, label and manage trees.",
+    "The world's first global database of trees is here! Tremap is a super simple, budget-friendly ledger system for botanical gardens, arboreta and city councils. And its an engaging, fun-to-use app for every person on the planet!",
   openGraph: {
     type: "website",
     siteName: "Tremap",
@@ -46,6 +47,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Header />
         <main id="main">{children}</main>
         <Footer />
+        <CookieConsent />
       </body>
     </html>
   );

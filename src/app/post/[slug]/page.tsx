@@ -9,6 +9,8 @@ import { ShareButtons } from "@/components/ShareButtons";
 import { Arrow, Container, Eyebrow, Section } from "@/components/ui";
 import { CATEGORIES, formatDate, getAllPosts, getPost, tagSlug } from "@/lib/posts";
 import { SITE_URL } from "@/lib/site";
+import { JsonLd } from "@/components/JsonLd";
+import { pageMeta } from "@/lib/seo";
 
 export const dynamicParams = false;
 
@@ -20,20 +22,13 @@ export async function generateMetadata({ params }: PageProps<"/post/[slug]">): P
   const { slug } = await params;
   const post = getPost(slug);
   if (!post) return {};
-  return {
+  return pageMeta(`/post/${post.slug}`, {
     title: post.title,
     description: post.excerpt || undefined,
-    alternates: { canonical: `/post/${post.slug}` },
-    openGraph: {
-      type: "article",
-      title: post.title,
-      description: post.excerpt || undefined,
-      publishedTime: post.date,
-      modifiedTime: post.updated,
-      authors: [post.author],
-      images: post.cover ? [post.cover] : undefined,
-    },
-  };
+    type: "article",
+    images: post.cover ? [post.cover] : undefined,
+    article: { publishedTime: post.date, modifiedTime: post.updated, authors: [post.author] },
+  });
 }
 
 export default async function PostPage({ params }: PageProps<"/post/[slug]">) {
@@ -48,8 +43,23 @@ export default async function PostPage({ params }: PageProps<"/post/[slug]">) {
     .slice(0, 3);
   const catSlug = (label: string) => CATEGORIES.find((c) => c.label === label)?.slug;
 
+  const postUrl = `${SITE_URL}/post/${post.slug}`;
+  const articleLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt || undefined,
+    datePublished: post.date,
+    dateModified: post.updated,
+    author: { "@type": "Person", name: post.author },
+    publisher: { "@type": "Organization", name: "Tremap", logo: { "@type": "ImageObject", url: `${SITE_URL}/icon.png` } },
+    image: post.cover ? [`${SITE_URL}${post.cover}`] : undefined,
+    mainEntityOfPage: { "@type": "ItemPage", "@id": postUrl, url: postUrl },
+  };
+
   return (
     <article>
+      <JsonLd data={articleLd} />
       <Container className="pb-8 pt-36 sm:pt-44">
         <Reveal className="mx-auto max-w-3xl">
           <Link href="/blog" className="group inline-flex items-center gap-2 text-sm font-semibold text-leaf">
