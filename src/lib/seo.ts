@@ -8,9 +8,6 @@ import wixSeo from "@/content/seo.json";
  */
 const INDEXED = wixSeo as Record<string, { title: string | null; description: string | null }>;
 
-// Wix descriptions that were copied from another page by mistake; ours are used instead
-const WRONG_ON_WIX = new Set(["/ghl-cork-oak", "/news"]);
-
 const OPEN_GRAPH_BASE = { siteName: "Tremap", locale: "en_GB" } as const;
 
 type PageMetaInput = {
@@ -31,8 +28,7 @@ export function pageMeta(path: string, input: PageMetaInput): Metadata {
   const indexed = INDEXED[path];
   const indexedTitle = indexed?.title ?? null;
   const fullTitle = indexedTitle ?? `${input.title} | Tremap`;
-  const description =
-    (!WRONG_ON_WIX.has(path) && indexed?.description) || input.description || undefined;
+  const description = indexed?.description || input.description || undefined;
 
   return {
     title: { absolute: fullTitle },
