@@ -4,7 +4,7 @@ export const PORTAL_SIGNIN_URL = "https://portal.tremap.com/signin";
 export const API_MAP = "https://clusters.tremap.com/api";
 
 export const CONTACT = {
-  email: "help@tremap.com",
+  email: "info@tremap.com",
   infoEmail: "info@tremap.com",
   salesEmail: "richardmaxwell@tremap.com",
   phone: "+44 (0) 20 3982 2216",

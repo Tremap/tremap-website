@@ -38,7 +38,7 @@ The site replaced a Wix site that ranks well. Every indexable page exports `meta
 Google Analytics 4 loads only after the visitor clicks Accept in the cookie notice (`src/components/CookieConsent.tsx`); nothing is sent to Google before that. Set `NEXT_PUBLIC_GA_ID` in Vercel. Without it there is no analytics and no notice. "Cookie settings" in the footer reopens the notice.
 
 ## Contact forms
-All forms post to `src/app/api/contact/route.ts`, which emails the team through Resend. Needs env vars (see `.env.example`). Without them the form shows a "please email help@tremap.com" message instead of failing silently.
+All forms post to `src/app/api/contact/route.ts`, which emails the team through Resend. Needs env vars (see `.env.example`). Without them the form shows a "please email info@tremap.com" message instead of failing silently.
 
 ## Not migrated from Wix (on purpose)
 - Members / Groups / Forum (Wix community apps, unused) → redirected to `/`.
