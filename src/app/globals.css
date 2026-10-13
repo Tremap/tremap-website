@@ -23,6 +23,16 @@
 
   --animate-marquee: marquee 45s linear infinite;
   --animate-ping-soft: ping-soft 2.4s var(--ease-out-soft) infinite;
+  --animate-scroll-hint: scroll-hint 1.9s var(--ease-out-soft) infinite;
+
+  @keyframes scroll-hint {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(300%);
+    }
+  }
 
   @keyframes marquee {
     from {

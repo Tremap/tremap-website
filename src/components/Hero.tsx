@@ -1,23 +1,18 @@
 "use client";
 
-import Image from "next/image";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
-import heroImg from "@/assets/images/aerial-town.jpg";
 import Link from "next/link";
 import { PORTAL_URL } from "@/lib/site";
+import { WorldTrees } from "./home/WorldTrees";
 import { Arrow } from "./ui";
 import { CountUp } from "./motion";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-// Pins dropped on trees in the aerial photo (percent positions)
-const PINS = [
-  { x: 63, y: 24, label: "Quercus robur", delay: 1.2 },
-  { x: 80, y: 44, label: "Betula pendula", delay: 1.6 },
-  { x: 57, y: 55, delay: 1.9 },
-  { x: 90, y: 22, delay: 2.1 },
-  { x: 70, y: 66, delay: 2.3 },
+const LINES = [
+  { text: "The global", className: "" },
+  { text: "tree map.", className: "italic text-ember-soft" },
 ];
 
 export function Hero({ treeCount }: { treeCount: number }) {
@@ -26,60 +21,23 @@ export function Hero({ treeCount }: { treeCount: number }) {
     target: ref,
     offset: ["start start", "end start"],
   });
-  const imgY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
-  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const mapScale = useTransform(scrollYProgress, [0, 1], [1, 1.18]);
+  const mapFade = useTransform(scrollYProgress, [0, 0.9], [1, 0.25]);
+  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "14%"]);
   const fade = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
   return (
     <section ref={ref} className="p-2 sm:p-3">
-      <div className="relative isolate flex min-h-[640px] flex-col overflow-hidden rounded-[28px] bg-forest-deep sm:rounded-[36px] h-[calc(100svh-1rem)] sm:h-[calc(100svh-1.5rem)]">
-        <motion.div
-          style={{ y: imgY }}
-          className="absolute inset-0 -z-20"
-        >
-          <motion.div
-            initial={{ scale: 1.15 }}
-            animate={{ scale: 1.03 }}
-            transition={{ duration: 2.8, ease }}
-            className="relative h-full w-full"
-          >
-            <Image
-              src={heroImg}
-              alt="Aerial view of trees among homes"
-              fill
-              priority
-              placeholder="blur"
-              sizes="100vw"
-              className="object-cover"
-            />
-          </motion.div>
-        </motion.div>
-        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-forest-deep via-forest-deep/55 to-forest-deep/30" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-forest-deep/70 via-transparent to-transparent" />
+      <div className="relative isolate flex min-h-[max(640px,calc(100svh-1rem))] flex-col overflow-hidden rounded-[28px] bg-forest-deep sm:h-[calc(100svh-1.5rem)] sm:min-h-[640px] sm:rounded-[36px]">
+        {/* Soft light behind the map */}
+        <div className="absolute left-1/2 top-[18%] -z-30 size-[60rem] -translate-x-1/2 rounded-full bg-leaf/20 blur-[140px]" />
 
-        {/* Map pins */}
-        <div className="pointer-events-none absolute inset-0 -z-10 hidden md:block">
-          {PINS.map((pin, i) => (
-            <motion.div
-              key={i}
-              className="absolute"
-              style={{ left: `${pin.x}%`, top: `${pin.y}%` }}
-              initial={{ opacity: 0, y: -14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease, delay: pin.delay }}
-            >
-              <span className="relative block size-3">
-                <span className="absolute inset-0 animate-ping-soft rounded-full bg-ember" />
-                <span className="absolute inset-0 rounded-full bg-ember ring-2 ring-white/90" />
-              </span>
-              {pin.label && (
-                <span className="absolute left-5 top-1/2 -translate-y-1/2 whitespace-nowrap rounded-full bg-white/15 px-3 py-1 text-xs font-medium italic text-white ring-1 ring-white/25 backdrop-blur-md">
-                  {pin.label}
-                </span>
-              )}
-            </motion.div>
-          ))}
-        </div>
+        <motion.div style={{ scale: mapScale, opacity: mapFade }} className="absolute inset-x-0 top-0 -z-20 h-[100svh] max-sm:opacity-70 sm:inset-0 sm:h-auto">
+          <WorldTrees />
+        </motion.div>
+
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-t from-forest-deep via-forest-deep/35 to-transparent" />
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-forest-deep/60 via-transparent to-transparent" />
 
         <motion.div
           style={{ y: contentY, opacity: fade }}
@@ -91,31 +49,29 @@ export function Hero({ treeCount }: { treeCount: number }) {
             transition={{ duration: 0.8, ease, delay: 0.3 }}
             className="mb-6 flex items-center gap-3 text-sm font-medium uppercase tracking-[0.2em] text-sage"
           >
-            <span className="h-px w-10 bg-ember" />
+            <motion.span
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 0.9, ease, delay: 0.3 }}
+              className="h-px w-10 origin-left bg-ember"
+            />
             Transparency to trees for the first time
           </motion.p>
 
           <h1 className="max-w-4xl font-display text-[clamp(3.2rem,8.5vw,7.4rem)] font-light leading-[0.98] tracking-[-0.03em] text-white">
-            <span className="block overflow-hidden pb-[0.08em]">
-              <motion.span
-                className="block"
-                initial={{ y: "105%" }}
-                animate={{ y: 0 }}
-                transition={{ duration: 1.1, ease, delay: 0.45 }}
-              >
-                The global
-              </motion.span>
-            </span>
-            <span className="block overflow-hidden pb-[0.12em]">
-              <motion.span
-                className="block italic text-ember-soft"
-                initial={{ y: "105%" }}
-                animate={{ y: 0 }}
-                transition={{ duration: 1.1, ease, delay: 0.57 }}
-              >
-                tree map.
-              </motion.span>
-            </span>
+            {LINES.map((line, i) => (
+              <span key={line.text} className="block overflow-hidden pb-[0.12em]">
+                <motion.span
+                  className={`block ${line.className}`}
+                  initial={{ y: "105%", rotate: 3 }}
+                  animate={{ y: 0, rotate: 0 }}
+                  transition={{ duration: 1.1, ease, delay: 0.45 + i * 0.12 }}
+                  style={{ transformOrigin: "left bottom" }}
+                >
+                  {line.text}
+                </motion.span>
+              </span>
+            ))}
           </h1>
 
           <div className="mt-10 flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
@@ -163,6 +119,7 @@ export function Hero({ treeCount }: { treeCount: number }) {
               </div>
               <CountUp
                 to={treeCount}
+                duration={3.4}
                 className="mt-3 block font-display text-4xl font-light tabular-nums text-white sm:text-5xl"
               />
               <p className="mt-1 text-sm text-white/70">
@@ -170,6 +127,21 @@ export function Hero({ treeCount }: { treeCount: number }) {
               </p>
             </motion.div>
           </div>
+        </motion.div>
+
+        {/* Scroll hint */}
+        <motion.div
+          style={{ opacity: fade }}
+          className="pointer-events-none absolute bottom-5 left-1/2 hidden -translate-x-1/2 lg:block"
+        >
+          <motion.span
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 2.4, duration: 1 }}
+            className="relative block h-9 w-px overflow-hidden bg-white/20"
+          >
+            <span className="absolute inset-x-0 top-0 h-3 animate-scroll-hint bg-white" />
+          </motion.span>
         </motion.div>
       </div>
     </section>

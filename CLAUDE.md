@@ -27,6 +27,12 @@ npx tsc --noEmit
 - Headings: Fraunces (`font-display`), italic `<em>` for the accent words. Body: Manrope.
 - Pages with a dark image hero must be listed in `DARK_HERO` in `src/components/Header.tsx` (white header over the hero); every other page gets the solid header.
 
+## Home page animation (branch `redesign-animated`)
+- Hero: `src/components/home/WorldTrees.tsx` draws a dotted world map on a canvas and lights up the real tree clusters from `src/content/world-trees.json` (a snapshot of the cluster API; regenerate it if the tree spread changes a lot).
+- Scroll sections: `home/AppStory.tsx` (pinned phone, three steps), `home/PlanetToTree.tsx` (photo grows to full screen, then pins and the tree count). Shared scroll helpers are in `src/components/motion.tsx`.
+- `SmoothScroll.tsx` (Lenis) eases wheel scrolling site-wide. Everything respects "reduce motion".
+- Do not put `position: sticky` sections inside `Panel`: its `overflow-hidden` stops them pinning.
+
 ## SEO (do not break)
 The site replaced a Wix site that ranks well. Every indexable page exports `metadata = pageMeta("/its-path", {...})` from `src/lib/seo.ts`. It sets the title, description, canonical URL and social tags, and reuses the title and description Google indexed on Wix (`src/content/seo.json`, keyed by path). To change what a page shows in Google, edit that JSON.
 - Never rename or remove a route without adding a redirect in `next.config.ts`.

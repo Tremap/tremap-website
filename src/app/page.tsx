@@ -3,8 +3,10 @@ import { ContactForm } from "@/components/ContactForm";
 import { Hero } from "@/components/Hero";
 import { SolutionsPreview, type SolutionRow } from "@/components/home/SolutionsPreview";
 import { LogoWall } from "@/components/LogoWall";
-import { CountUp, Reveal } from "@/components/motion";
-import { Monitor, Phone } from "@/components/Phone";
+import { AppStory, type AppStep } from "@/components/home/AppStory";
+import { PlanetToTree } from "@/components/home/PlanetToTree";
+import { CountUp, Parallax, Reveal, ScaleIn, ScrollMarquee, ScrollProgress, ScrollWords, Wipe } from "@/components/motion";
+import { Monitor } from "@/components/Phone";
 import { PostCard } from "@/components/PostCard";
 import { Button, CheckItem, Container, Eyebrow, H2, Panel, Section } from "@/components/ui";
 import { m } from "@/lib/media";
@@ -127,11 +129,33 @@ const SPONSORED = [
 export default async function Home() {
   const treeCount = await getTreeCount();
   const latest = getAllPosts().slice(0, 3);
+  const millions = Math.floor(treeCount / 1_000_000);
+  const appSteps: AppStep[] = [
+    {
+      title: "Map",
+      body: "Drop a pin on any tree.",
+      shot: m("943aed_e6446bce968b4ed98483b315e750d8d0~mv2.png"),
+      alt: "Tremap app: a selected tree on the map",
+    },
+    {
+      title: "Label",
+      body: "Add its species, photos and story.",
+      shot: m("943aed_39259515b5e54086bdce84f887d20ea8~mv2.png"),
+      alt: "Tremap app: editing tree information",
+    },
+    {
+      title: "Discover",
+      body: `Explore more than ${millions} million trees already on the global tree map.`,
+      shot: m("943aed_acf6384f53f9462b80cfba6655054cca~mv2.png"),
+      alt: "Tremap app: tree details for visitors",
+    },
+  ];
 
   return (
     <>
       <JsonLd data={WEBSITE_LD} />
       <JsonLd data={BUSINESS_LD} />
+      <ScrollProgress />
       <Hero treeCount={treeCount} />
 
       {/* Who works with Tremap? */}
@@ -145,9 +169,13 @@ export default async function Home() {
           <LogoWall />
         </div>
         <Container>
-          <Reveal className="mx-auto mt-14 max-w-3xl text-center">
-            <blockquote className="font-display text-[clamp(1.7rem,3.4vw,2.8rem)] font-light leading-[1.18] tracking-[-0.015em] text-forest">
-              &ldquo;Tremap is a great idea. You definitely have <em className="text-leaf">my support&hellip;</em>&rdquo;
+          <Reveal className="mx-auto mt-16 max-w-4xl text-center">
+            <blockquote>
+              <ScrollWords
+                text="“Tremap is a great idea. You definitely have my support…”"
+                accent="my support…”"
+                className="font-display text-[clamp(1.9rem,4.4vw,3.6rem)] font-light leading-[1.14] tracking-[-0.015em] text-forest"
+              />
             </blockquote>
             <p className="mt-5 text-stone">
               <span className="font-semibold text-ink">Sir Tim Smit</span> · Eden Project
@@ -157,61 +185,58 @@ export default async function Home() {
       </Section>
 
       {/* Get the app */}
-      <Panel tone="mist">
-        <Container className="grid items-center gap-16 lg:grid-cols-[1fr_1.05fr]">
-          <Reveal>
+      <AppStory
+        steps={appSteps}
+        intro={
+          <>
             <Eyebrow>Get the app</Eyebrow>
             <H2 className="mt-5">
               Map, label and discover trees — <em>right from your phone.</em>
             </H2>
-            <p className="mt-6 max-w-lg text-lg leading-relaxed text-stone">
-              Drop a pin on any tree, add its species, photos and story, and
-              explore more than {Math.floor(treeCount / 1_000_000)} million trees
-              already on the global tree map.
-            </p>
-            <div className="mt-10 flex flex-wrap items-center gap-6">
-              <div className="flex flex-col gap-3">
-                <a href={APP_LINKS.ios} aria-label="Download on the App Store" className="transition-transform hover:-translate-y-0.5">
-                  <Image src={m("173562_7847c54f7470426c8e07318d8458bcc1~mv2.png").src} alt="Download on the App Store" width={180} height={60} className="h-[52px] w-auto" />
-                </a>
-                <a href={APP_LINKS.android} aria-label="Get it on Google Play" className="transition-transform hover:-translate-y-0.5">
-                  <Image src={m("173562_cd9c07b88b2a4a9297a6937b1eb632a9~mv2.png").src} alt="Get it on Google Play" width={180} height={60} className="h-[52px] w-auto" />
-                </a>
-              </div>
-              <div className="flex items-center gap-4 rounded-3xl bg-white p-3 pr-6 ring-1 ring-forest/5">
-                <Image src={m("173562_acf93993d2864fcb838db43f713fa9bd~mv2.png").src} alt="QR code to download the Tremap app" width={212} height={212} className="size-24 rounded-xl" />
-                <p className="max-w-[9rem] text-sm leading-snug text-stone">Scan to download the Tremap app</p>
-              </div>
+          </>
+        }
+        footer={
+          <div className="flex flex-wrap items-center gap-6">
+            <div className="flex flex-col gap-3">
+              <a href={APP_LINKS.ios} aria-label="Download on the App Store" className="transition-transform hover:-translate-y-0.5">
+                <Image src={m("173562_7847c54f7470426c8e07318d8458bcc1~mv2.png").src} alt="Download on the App Store" width={180} height={60} className="h-[52px] w-auto" />
+              </a>
+              <a href={APP_LINKS.android} aria-label="Get it on Google Play" className="transition-transform hover:-translate-y-0.5">
+                <Image src={m("173562_cd9c07b88b2a4a9297a6937b1eb632a9~mv2.png").src} alt="Get it on Google Play" width={180} height={60} className="h-[52px] w-auto" />
+              </a>
             </div>
-          </Reveal>
+            <div className="flex items-center gap-4 rounded-3xl bg-white p-3 pr-6 ring-1 ring-forest/5">
+              <Image src={m("173562_acf93993d2864fcb838db43f713fa9bd~mv2.png").src} alt="QR code to download the Tremap app" width={212} height={212} className="size-24 rounded-xl" />
+              <p className="max-w-[9rem] text-sm leading-snug text-stone">Scan to download the Tremap app</p>
+            </div>
+          </div>
+        }
+      />
 
-          <Reveal delay={0.1} className="relative mx-auto flex w-full max-w-xl items-end justify-center gap-3 sm:gap-5">
-            <Phone shot={m("943aed_acf6384f53f9462b80cfba6655054cca~mv2.png")} alt="Tremap app: tree details for visitors" className="mb-10 w-[31%] -rotate-3" />
-            <Phone shot={m("943aed_e6446bce968b4ed98483b315e750d8d0~mv2.png")} alt="Tremap app: a selected tree on the map" className="z-10 w-[36%]" />
-            <Phone shot={m("943aed_39259515b5e54086bdce84f887d20ea8~mv2.png")} alt="Tremap app: editing tree information" className="mb-10 w-[31%] rotate-3" />
-          </Reveal>
-        </Container>
-      </Panel>
+      {/* Global database: the photo grows to full screen, then the pins drop */}
+      <PlanetToTree>
+        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-sage">The Tremap Global Database</p>
+        <CountUp to={treeCount} className="mt-6 block font-display text-[clamp(3.2rem,9vw,8rem)] font-light leading-none tabular-nums tracking-[-0.03em]" />
+        <p className="mt-4 text-xl text-white/80">trees and counting!</p>
+        <div className="mt-10">
+          <Button href={PORTAL_URL} variant="white">Explore the map</Button>
+        </div>
+      </PlanetToTree>
 
-      {/* Global database + integrate */}
+      {/* Integrate */}
       <Section>
-        <Container className="grid gap-6 lg:grid-cols-2">
-          <Reveal className="relative overflow-hidden rounded-[28px] bg-forest p-8 text-white sm:p-12">
-            <Image src={m("943aed_108a7e3f119c4f15aae29b6561be4ccf~mv2.png").src} alt="" width={214} height={214} className="absolute -right-6 -top-6 w-40 opacity-90 sm:w-52" />
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-sage">The Tremap Global Database</p>
-            <CountUp to={treeCount} className="mt-10 block font-display text-[clamp(3rem,7vw,5.2rem)] font-light leading-none tabular-nums tracking-[-0.03em]" />
-            <p className="mt-3 text-lg text-white/75">trees and counting!</p>
-            <div className="mt-10">
-              <Button href={PORTAL_URL} variant="white">Explore the map</Button>
-            </div>
-          </Reveal>
-          <Reveal delay={0.1} className="relative overflow-hidden rounded-[28px] bg-sand/70 p-8 sm:p-12">
-            <Image src={m("943aed_a9a5b9669792450585e6aace659c7b6d~mv2.png").src} alt="" width={252} height={252} className="absolute -bottom-4 -right-4 w-40 sm:w-52" />
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-leaf">Tree data to add?</p>
-            <h2 className="mt-10 max-w-sm font-display text-[clamp(2rem,4vw,3rem)] font-light leading-[1.08] tracking-[-0.02em] text-forest">
-              Integrate it into the Tremap <em className="text-leaf">global database.</em>
-            </h2>
-            <div className="mt-10">
+        <Container>
+          <Reveal className="relative overflow-hidden rounded-[28px] bg-sand/70 p-8 sm:p-14">
+            <Parallax amount={24} className="absolute -bottom-4 -right-4 w-40 sm:w-60">
+              <Image src={m("943aed_a9a5b9669792450585e6aace659c7b6d~mv2.png").src} alt="" width={252} height={252} className="h-auto w-full" />
+            </Parallax>
+            <div className="relative flex flex-col gap-10 md:flex-row md:items-end md:justify-between md:pr-56">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-leaf">Tree data to add?</p>
+                <h2 className="mt-6 max-w-xl font-display text-[clamp(2rem,4vw,3.2rem)] font-light leading-[1.08] tracking-[-0.02em] text-forest">
+                  Integrate it into the Tremap <em className="text-leaf">global database.</em>
+                </h2>
+              </div>
               <Button href="/contact?topic=integration" variant="forest">Integrate now</Button>
             </div>
           </Reveal>
@@ -245,9 +270,9 @@ export default async function Home() {
               </Button>
             </div>
           </Reveal>
-          <Reveal delay={0.1}>
+          <ScaleIn>
             <Monitor shot={m("943aed_7ab3c159b0964416a5ea2d8e36e3035c~mv2.png")} alt="The Tremap web portal" />
-          </Reveal>
+          </ScaleIn>
         </Container>
       </Panel>
 
@@ -290,13 +315,17 @@ export default async function Home() {
               management professionals.
             </p>
             <dl className="mt-10 grid max-w-lg grid-cols-3 gap-6">
-              {[
-                ["30k+", "Equipment installations monitored"],
-                ["2m+", "Trees managed"],
-                ["5,000+", "Satisfied users"],
-              ].map(([n, l]) => (
+              {(
+                [
+                  [30, "k+", "Equipment installations monitored"],
+                  [2, "m+", "Trees managed"],
+                  [5000, "+", "Satisfied users"],
+                ] as const
+              ).map(([n, suffix, l]) => (
                 <div key={l}>
-                  <dt className="font-display text-4xl font-light text-forest">{n}</dt>
+                  <dt className="font-display text-4xl font-light text-forest">
+                    <CountUp to={n} suffix={suffix} duration={1.6} />
+                  </dt>
                   <dd className="mt-1 text-sm leading-snug text-stone">{l}</dd>
                 </div>
               ))}
@@ -306,7 +335,7 @@ export default async function Home() {
               <Button href="/greenspaces" variant="outline" arrow={false}>Explore GreenSpaces</Button>
             </div>
           </Reveal>
-          <Reveal delay={0.1}>
+          <Parallax amount={36}>
             <Image
               src={m("943aed_73bf3258162841e4b244e7a0fe6aa983~mv2.png").src}
               alt="GreenSpaces on desktop, tablet and phone"
@@ -315,7 +344,7 @@ export default async function Home() {
               sizes="(min-width: 1024px) 45vw, 100vw"
               className="h-auto w-full"
             />
-          </Reveal>
+          </Parallax>
         </Container>
       </Panel>
 
@@ -335,7 +364,7 @@ export default async function Home() {
           </div>
           <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {SPONSORED.map((s, i) => (
-              <Reveal key={s.href} delay={0.08 * i}>
+              <Wipe key={s.href} delay={0.1 * i}>
                 <a href={s.href} className="group relative block aspect-[3/4] overflow-hidden rounded-3xl">
                   <Image src={s.image.src} alt={s.species} fill sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" className="object-cover transition-transform duration-[1.4s] ease-out-soft group-hover:scale-[1.06]" />
                   <div className="absolute inset-0 bg-gradient-to-t from-forest-deep/90 via-forest-deep/10 to-transparent" />
@@ -347,7 +376,7 @@ export default async function Home() {
                     <h3 className="mt-1 font-display text-2xl font-light">{s.species}</h3>
                   </div>
                 </a>
-              </Reveal>
+              </Wipe>
             ))}
           </div>
         </Container>
@@ -376,6 +405,15 @@ export default async function Home() {
           </div>
         </Container>
       </Panel>
+
+      <ScrollMarquee className="pt-20 sm:pt-28">
+        {[0, 1, 2].map((i) => (
+          <span key={i} className="px-[0.35em] font-display text-[clamp(4.5rem,15vw,13rem)] font-light leading-none tracking-[-0.03em] text-forest">
+            Let&apos;s map <em className="text-leaf">what matters.</em>
+            <span className="ml-[0.5em] inline-block size-[0.16em] rounded-full bg-ember align-middle" />
+          </span>
+        ))}
+      </ScrollMarquee>
 
       {/* Get in touch */}
       <Section id="contact">

@@ -3,6 +3,7 @@ import { Fraunces, Manrope } from "next/font/google";
 import { CookieConsent } from "@/components/CookieConsent";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
@@ -48,6 +49,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <main id="main">{children}</main>
         <Footer />
         <CookieConsent />
+        <SmoothScroll />
       </body>
     </html>
   );
