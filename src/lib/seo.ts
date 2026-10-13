@@ -9,6 +9,7 @@ import wixSeo from "@/content/seo.json";
 const INDEXED = wixSeo as Record<string, { title: string | null; description: string | null }>;
 
 const OPEN_GRAPH_BASE = { siteName: "Tremap", locale: "en_GB" } as const;
+const DEFAULT_SHARE_IMAGE = { url: "/opengraph-image", width: 1200, height: 630, alt: "Tremap, the global tree map" };
 
 type PageMetaInput = {
   /** Used when the old site had no title for this path. The "| Tremap" suffix is added. */
@@ -40,7 +41,8 @@ export function pageMeta(path: string, input: PageMetaInput): Metadata {
       url: path,
       title: fullTitle,
       description,
-      ...(input.images?.length ? { images: input.images } : {}),
+      // A page that sets its own openGraph loses the site-wide share image, so name it again.
+      images: input.images?.length ? input.images : [DEFAULT_SHARE_IMAGE],
       ...(input.article ?? {}),
     },
   };

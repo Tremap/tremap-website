@@ -4,7 +4,8 @@ import { Reveal } from "@/components/motion";
 import { Button, CheckItem, Container, CtaBand, Eyebrow, H2, PageHero, Panel, Section } from "@/components/ui";
 import { VideoGallery } from "@/components/VideoGallery";
 import { m } from "@/lib/media";
-import { CONTACT, mailto } from "@/lib/site";
+import { JsonLd } from "@/components/JsonLd";
+import { CONTACT, mailto, SITE_URL } from "@/lib/site";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta("/greenspaces", {
@@ -80,10 +81,31 @@ const VIDEOS = [
   },
 ];
 
+// Same video structured data the Wix page published, so Google keeps the video results.
+const UPLOADED = "2024-05-22T10:19:18.898Z";
+const VIDEOS_LD = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  itemListElement: VIDEOS.map((v, i) => {
+    const [min, sec] = v.duration.split(":");
+    return {
+      "@type": "VideoObject",
+      position: i + 1,
+      name: v.title,
+      description: v.description,
+      thumbnailUrl: `${SITE_URL}${v.thumb}`,
+      uploadDate: UPLOADED,
+      duration: `PT${Number(min)}M${Number(sec)}S`,
+      embedUrl: `https://player.vimeo.com/video/${v.vimeoId}`,
+    };
+  }),
+};
+
 export default function GreenSpacesPage() {
   const gsLogo = m("943aed_173e72cefbfd44bea88605e4a15e7d80~mv2.jpg");
   return (
     <>
+      <JsonLd data={VIDEOS_LD} />
       <PageHero
         eyebrow="Tremap GreenSpaces"
         title={<>State-of-the-art management software for <em>urban trees and green areas.</em></>}
