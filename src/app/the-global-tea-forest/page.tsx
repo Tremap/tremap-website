@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { ContactForm } from "@/components/ContactForm";
 import { Reveal } from "@/components/motion";
-import { SpeciesMap } from "@/components/SpeciesMap";
 import { Button, Container, Eyebrow, H2, PageHero, Panel, Section } from "@/components/ui";
 import { m } from "@/lib/media";
 import { pageMeta } from "@/lib/seo";
@@ -91,15 +90,7 @@ export default function GlobalTeaForestPage() {
         </Container>
       </Panel>
 
-      <Section>
-        <Container>
-          <Reveal>
-            <SpeciesMap genus="Camellia" species="sinensis" lat={22} lng={90} zoom={3} label="tea bush" poster={field.src} />
-          </Reveal>
-        </Container>
-      </Section>
-
-      <Section id="sponsor" className="!pt-0">
+      <Section id="sponsor">
         <Container className="grid gap-14 lg:grid-cols-2">
           <Reveal className="relative hidden overflow-hidden rounded-[28px] lg:block">
             <Image src={workers.src} alt="Tea field workers" fill sizes="45vw" className="object-cover" />
