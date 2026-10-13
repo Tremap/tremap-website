@@ -45,7 +45,7 @@ export default function HeathrowBlackPoplarsPage() {
           </>
         ),
       }}
-      map={<SpeciesMap genus="Populus" species="nigra" lat={53.5} lng={-2.2} zoom={5} label="Black Poplar" poster={hero.src} />}
+      map={<SpeciesMap genus="Populus" species="nigra" lat={51.466623451261114} lng={-0.43982531059094754} zoom={11.6} label="Black Poplar" poster={hero.src} />}
       cta={{ label: "Get involved", href: mailto(CONTACT.infoEmail, "I'd like to get involved in the Heathrow Black Poplar Project") }}
     />
   );

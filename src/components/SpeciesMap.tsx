@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type Props = {
   genus: string;
@@ -13,13 +13,30 @@ type Props = {
   poster: string;
 };
 
-/** Live Tremap embed map filtered to one species; loads on demand. */
+/** Live Tremap embed map filtered to one species; loads when scrolled near, or on click. */
 export function SpeciesMap({ genus, species, lat, lng, zoom, label, poster }: Props) {
   const [loaded, setLoaded] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || !("IntersectionObserver" in window)) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setLoaded(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
   const src = `https://portal.tremap.com/embedmap?zoom=${zoom}&lat=${lat}&lng=${lng}&genus=${encodeURIComponent(genus)}&species=${encodeURIComponent(species)}`;
 
   return (
-    <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] bg-forest-deep ring-1 ring-forest/10 sm:aspect-[16/9]">
+    <div ref={ref} className="relative aspect-[4/3] overflow-hidden rounded-[28px] bg-forest-deep ring-1 ring-forest/10 sm:aspect-[16/9]">
       {loaded ? (
         <iframe src={src} title={`Live map of ${label}`} loading="lazy" className="absolute inset-0 size-full border-0" allow="geolocation" />
       ) : (

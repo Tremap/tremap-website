@@ -87,7 +87,7 @@ export default function NareMagnoliaPage() {
       <Section id="map" className="!pt-0">
         <Container>
           <Reveal>
-            <SpeciesMap genus="Magnolia" species="campbellii" lat={20} lng={40} zoom={2} label="Magnolia campbellii" poster={flamingo.src} />
+            <SpeciesMap genus="Magnolia" species="campbellii" lat={27.000696895885824} lng={88.27711248495075} zoom={11.108550331939089} label="Magnolia campbellii" poster={flamingo.src} />
           </Reveal>
         </Container>
       </Section>

@@ -39,7 +39,7 @@ export default function GhlCorkOakPage() {
           </>
         ),
       }}
-      map={<SpeciesMap genus="Quercus" species="suber" lat={45} lng={-2} zoom={4} label="Cork Oak" poster={hero.src} />}
+      map={<SpeciesMap genus="Quercus" species="suber" lat={50.21078461435951} lng={-5.07288866717343} zoom={12} label="Cork Oak" poster={hero.src} />}
       cta={{ label: "Get involved", href: mailto(CONTACT.infoEmail, "I'd like to get involved in the GHL Cork Oak Project") }}
     />
   );
