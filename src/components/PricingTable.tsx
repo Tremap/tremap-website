@@ -4,23 +4,25 @@ import { Button } from "./ui";
 type Cell = boolean | string;
 
 const PLANS = [
-  { name: "Free", monthly: "£0", yearly: null },
-  { name: "Starter", monthly: "£29", yearly: "£319" },
-  { name: "Value", monthly: "£239", yearly: "£2,629" },
-  { name: "Pro", monthly: "£409", yearly: "£4,499" },
+  { name: "Free", monthly: "£0", yearly: null, from: false, fit: "Individual app use" },
+  { name: "Starter", monthly: "£29", yearly: "£290", from: false, fit: "Small collections" },
+  { name: "Garden", monthly: "£79", yearly: "£790", from: false, fit: "Gardens and small estates" },
+  { name: "Estate", monthly: "£149", yearly: "£1,490", from: false, fit: "Larger collections" },
+  { name: "Organisation", monthly: "£299", yearly: "£2,990", from: true, fit: "Multiple sites and larger teams" },
 ];
 
 const FEATURES: { label: string; values: Cell[] }[] = [
-  { label: "Free app download", values: [true, true, true, true] },
-  { label: "Free 30 day trial", values: [true, true, true, true] },
-  { label: "24/7 tech support hotline", values: [true, true, true, true] },
-  { label: "Access to desktop portal", values: [false, true, true, true] },
-  { label: "On-site support (POA)", values: [false, true, true, true] },
-  { label: "Unlimited geo-fencing", values: [false, true, true, true] },
-  { label: "Photos (per tree)", values: ["3", "3", "5", "Unlimited"] },
-  { label: "Users (per subscription)", values: ["1", "3", "10", "Unlimited"] },
-  { label: "Map, label and save up to (trees)", values: ["30", "200", "1,000", "Unlimited"] },
-  { label: "Embedded web map", values: [false, "POA", "POA", "POA"] },
+  { label: "Map, label and save up to (trees)", values: ["30", "500", "5,000", "25,000", "Agreed"] },
+  { label: "Editors", values: ["1", "3", "5", "10", "Agreed"] },
+  { label: "Free app download", values: [true, true, true, true, true] },
+  { label: "Free 30 day trial", values: [false, true, true, true, true] },
+  { label: "24/7 tech support hotline", values: [true, true, true, true, true] },
+  { label: "Access to desktop portal", values: [false, true, true, true, true] },
+  { label: "Unlimited geo-fencing", values: [false, true, true, true, true] },
+  { label: "Public map of your collection", values: [false, "POA", true, true, true] },
+  { label: "Multiple sites", values: [false, false, false, false, true] },
+  { label: "Agreed service requirements", values: [false, false, false, false, true] },
+  { label: "On-site support (POA)", values: [false, true, true, true, true] },
 ];
 
 function Value({ v }: { v: Cell }) {
@@ -38,21 +40,23 @@ function Value({ v }: { v: Cell }) {
 export function PricingTable() {
   return (
     <div className="overflow-x-auto rounded-[28px] bg-white ring-1 ring-forest/10">
-      <table className="w-full min-w-[720px] border-collapse text-center">
+      <table className="w-full min-w-[880px] border-collapse text-center">
         <caption className="sr-only">Tremap standard web portal subscription plans</caption>
         <thead>
           <tr>
-            <th scope="col" className="w-[28%] p-6 text-left align-bottom text-sm font-semibold uppercase tracking-[0.15em] text-stone">
+            <th scope="col" className="w-[24%] p-6 text-left align-bottom text-sm font-semibold uppercase tracking-[0.15em] text-stone">
               Features
             </th>
             {PLANS.map((p) => (
-              <th key={p.name} scope="col" className="p-6 align-bottom">
+              <th key={p.name} scope="col" className="p-6 align-top">
                 <span className="block font-display text-2xl font-normal text-forest">{p.name}</span>
-                <span className="mt-2 block font-display text-3xl font-light text-ink">
+                <span className="mx-auto mt-1 block min-h-[2.6em] max-w-[11rem] text-xs font-medium leading-snug text-stone">{p.fit}</span>
+                <span className="mt-3 block font-display text-3xl font-light text-ink">
+                  {p.from && <span className="text-base text-stone">From </span>}
                   {p.monthly}
                   {p.yearly && <span className="text-base text-stone">/month</span>}
                 </span>
-                <span className="mt-1 block text-sm text-stone">{p.yearly ? `or ${p.yearly}/year` : "Free forever"}</span>
+                <span className="mt-1 block text-sm text-stone">{p.yearly ? `or ${p.from ? "from " : ""}${p.yearly}/year` : "Free forever"}</span>
               </th>
             ))}
           </tr>
@@ -74,9 +78,15 @@ export function PricingTable() {
             <td />
             {PLANS.map((p) => (
               <td key={p.name} className="px-4 py-6">
-                <Button href="https://portal.tremap.com/signin" variant={p.name === "Free" ? "outline" : "ember"} arrow={false} className="!px-5 !py-2.5 text-sm">
-                  {p.name === "Free" ? "Start free" : "Start trial"}
-                </Button>
+                {p.from ? (
+                  <Button href="/contact?topic=pricing" variant="outline" arrow={false} className="!px-5 !py-2.5 text-sm">
+                    Talk to us
+                  </Button>
+                ) : (
+                  <Button href="https://portal.tremap.com/signin" variant={p.name === "Free" ? "outline" : "ember"} arrow={false} className="!px-5 !py-2.5 text-sm">
+                    {p.name === "Free" ? "Start free" : "Start trial"}
+                  </Button>
+                )}
               </td>
             ))}
           </tr>

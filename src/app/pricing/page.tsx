@@ -31,6 +31,11 @@ export default function PricingPage() {
           </Reveal>
           <p className="mt-6 text-sm text-stone">
             All plans include the free Tremap app. POA = price on application.
+            Species sponsorship is sold separately,{" "}
+            <a href="/speciessponsors" className="font-semibold text-forest underline decoration-ember/60 underline-offset-4 hover:decoration-ember">
+              see species sponsors
+            </a>
+            .
           </p>
         </Container>
       </Section>
