@@ -1,4 +1,4 @@
-import { CONTACT, mailto } from "@/lib/site";
+import { CONTACT, PORTAL_URL, mailto } from "@/lib/site";
 import { Button } from "./ui";
 
 type Cell = boolean | string;
@@ -83,7 +83,8 @@ export function PricingTable() {
                     Talk to us
                   </Button>
                 ) : (
-                  <Button href="https://portal.tremap.com/signin" variant={p.name === "Free" ? "outline" : "ember"} arrow={false} className="!px-5 !py-2.5 text-sm">
+                  // Portal sign-up for the chosen plan, then straight to its payment page.
+                  <Button href={`${PORTAL_URL}/join?plan=${p.name.toLowerCase()}&interval=yearly`} variant={p.name === "Free" ? "outline" : "ember"} arrow={false} className="!px-5 !py-2.5 text-sm">
                     {p.name === "Free" ? "Start free" : "Start trial"}
                   </Button>
                 )}
