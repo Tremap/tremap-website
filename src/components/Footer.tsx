@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import logoWhite from "@/assets/logo-white.png";
 import { CookieSettingsButton } from "@/components/CookieConsent";
-import { CONTACT, PORTAL_URL, SOCIALS } from "@/lib/site";
+import { CONTACT, PORTAL_URL, PRICING_URL, SOCIALS } from "@/lib/site";
 
 const COLUMNS = [
   {
@@ -13,7 +13,7 @@ const COLUMNS = [
       { label: "Digital labelling", href: "/labelling" },
       { label: "Traceability", href: "/traceabilityaddedvalue" },
       { label: "Creative Connect", href: "/creativeconnect" },
-      { label: "Pricing", href: "/pricing" },
+      { label: "Pricing", href: PRICING_URL },
       { label: "Portal login", href: PORTAL_URL },
     ],
   },

@@ -3,10 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { ContactForm } from "@/components/ContactForm";
 import { Reveal } from "@/components/motion";
-import { PricingNote, PricingTable } from "@/components/PricingTable";
-import { Arrow, Container, Eyebrow, H2, PageHero, Panel, Section } from "@/components/ui";
+import { Arrow, Button, Container, Eyebrow, H2, PageHero, Panel, Section } from "@/components/ui";
 import { m } from "@/lib/media";
 import { pageMeta } from "@/lib/seo";
+import { PRICING_URL } from "@/lib/site";
 
 export const metadata: Metadata = pageMeta("/solutions", {
   title: "Solutions",
@@ -71,12 +71,13 @@ export default function SolutionsPage() {
             <H2 className="mt-5">
               Simple, <em>transparent</em> pricing.
             </H2>
-            <div className="mt-6">
-              <PricingNote below />
+            <p className="mt-6 text-lg leading-relaxed text-stone">
+              Plans for gardens and collections, all-in-one packages, species
+              sponsorship and our current plans, with a free plan to start.
+            </p>
+            <div className="mt-8">
+              <Button href={PRICING_URL}>See plans and prices</Button>
             </div>
-          </Reveal>
-          <Reveal delay={0.1} className="mt-12">
-            <PricingTable />
           </Reveal>
         </Container>
       </Panel>

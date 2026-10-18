@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Arrow, Container, PlainHero, Section } from "@/components/ui";
 import { formatDate, getAllPosts } from "@/lib/posts";
+import { PRICING_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Search",
@@ -12,7 +13,7 @@ const PAGES = [
   { title: "Home", href: "/", text: "The global tree map. Transparency to trees for the first time. Get the app. Global database." },
   { title: "Solutions", href: "/solutions", text: "Tree mapping digital labelling creative connect agritourism corporate sponsors traceability gardens arboreta community surveying arborists greenspaces tree planting pest disease memorial trees subscription plans" },
   { title: "GreenSpaces", href: "/greenspaces", text: "Management software urban trees green areas QTRA playground inspections councils local authorities R3GIS weather meteo module brochure" },
-  { title: "Pricing", href: "/pricing", text: "Subscription plans free starter value pro web portal price trial" },
+  { title: "Pricing", href: PRICING_URL, text: "Subscription plans free starter value pro web portal price trial" },
   { title: "Labelling", href: "/labelling", text: "Digital labels physical labels private gardens treBG botanical gardens visitor guide" },
   { title: "Traceability and Added Value", href: "/traceabilityaddedvalue", text: "QR codes packaging consumers source trees brand olive oil" },
   { title: "Creative Connect", href: "/creativeconnect", text: "Artists art music painting photography trees exhibition sell your work" },

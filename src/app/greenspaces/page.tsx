@@ -5,7 +5,7 @@ import { Button, CheckItem, Container, CtaBand, Eyebrow, H2, PageHero, Panel, Se
 import { VideoGallery } from "@/components/VideoGallery";
 import { m } from "@/lib/media";
 import { JsonLd } from "@/components/JsonLd";
-import { CONTACT, mailto, SITE_URL } from "@/lib/site";
+import { CONTACT, mailto, PRICING_URL, SITE_URL } from "@/lib/site";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta("/greenspaces", {
@@ -340,7 +340,7 @@ export default function GreenSpacesPage() {
 
       <CtaBand title={<>See GreenSpaces <em>in action.</em></>} text="Book a demo with our team and see how GreenSpaces fits the way you work.">
         <Button href={DEMO}>Request a demo</Button>
-        <Button href="/pricing" variant="outline-light" arrow={false}>
+        <Button href={PRICING_URL} variant="outline-light" arrow={false}>
           Pricing
         </Button>
       </CtaBand>

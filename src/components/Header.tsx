@@ -15,7 +15,6 @@ const DARK_HERO = new Set([
   "/",
   "/solutions",
   "/greenspaces",
-  "/pricing",
   "/labelling",
   "/traceabilityaddedvalue",
   "/creativeconnect",

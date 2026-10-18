@@ -4,6 +4,8 @@ const nextConfig: NextConfig = {
   // Old Wix URLs that have no page of their own on the new site
   async redirects() {
     return [
+      // Prices live on the portal (one list, read from the auth server)
+      { source: "/pricing", destination: "https://portal.tremap.com/pricing", permanent: false },
       { source: "/home", destination: "/", permanent: true },
       { source: "/copy-of-labelling", destination: "/contact?topic=development", permanent: true },
       { source: "/members", destination: "/", permanent: true },

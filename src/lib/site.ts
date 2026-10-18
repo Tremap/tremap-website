@@ -1,6 +1,9 @@
 export const SITE_URL = "https://www.tremap.com";
 export const PORTAL_URL = "https://portal.tremap.com";
 export const PORTAL_SIGNIN_URL = "https://portal.tremap.com/signin";
+// The one public price list. It lives in the portal, which reads the plans
+// from the auth server, so prices are never kept in two places.
+export const PRICING_URL = "https://portal.tremap.com/pricing";
 export const API_MAP = "https://clusters.tremap.com/api";
 
 export const CONTACT = {
@@ -41,7 +44,7 @@ export const NAV: NavItem[] = [
       { label: "Digital labelling", href: "/labelling", description: "No-cost, permanent, eco-friendly" },
       { label: "Traceability", href: "/traceabilityaddedvalue", description: "QR codes from product to tree" },
       { label: "Creative Connect", href: "/creativeconnect", description: "Attach art and music to trees" },
-      { label: "Pricing", href: "/pricing", description: "Web portal subscription plans" },
+      { label: "Pricing", href: PRICING_URL, description: "Plans for gardens, estates and sponsors" },
     ],
   },
   {

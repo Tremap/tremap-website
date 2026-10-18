@@ -13,7 +13,7 @@ import { m } from "@/lib/media";
 import { JsonLd } from "@/components/JsonLd";
 import { getAllPosts } from "@/lib/posts";
 import { pageMeta } from "@/lib/seo";
-import { APP_LINKS, CONTACT, getTreeCount, PORTAL_URL, SITE_URL, SOCIALS } from "@/lib/site";
+import { APP_LINKS, CONTACT, getTreeCount, PORTAL_URL, PRICING_URL, SITE_URL, SOCIALS } from "@/lib/site";
 
 export const metadata = pageMeta("/", { title: "Global Tree Database for everyone" });
 
@@ -264,7 +264,7 @@ export default async function Home() {
               <CheckItem light>Geo-fencing, photos and team access</CheckItem>
             </ul>
             <div className="mt-10 flex flex-wrap gap-3">
-              <Button href="/pricing">Sign up for a free trial!</Button>
+              <Button href={PRICING_URL}>Sign up for a free trial!</Button>
               <Button href={PORTAL_URL} variant="outline-light" arrow={false}>
                 Open the portal
               </Button>

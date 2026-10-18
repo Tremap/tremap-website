@@ -6,7 +6,6 @@ const PAGES = [
   "",
   "/solutions",
   "/greenspaces",
-  "/pricing",
   "/labelling",
   "/traceabilityaddedvalue",
   "/creativeconnect",
